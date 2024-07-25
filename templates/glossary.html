@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1 class="text-light">Выберите категорию</h1>
+
+    <div class="row my-4" id="top">
+        <div class="col-6">
+            <div class="accordion accordion-flush" id="accordionAlgebra">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseAlgebra" aria-expanded="false">
+                            Алгебра
+                        </button>
+                    </h2>
+                    <div id="collapseAlgebra" class="accordion-collapse collapse"
+                         data-bs-parent="#accordionAlgebra">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra1">Формулы сокращенного
+                                умножения</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra2">Модуль числа</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra3">Степень с
+                                действительным показателем</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra4">Корень n-ой степени
+                                из числа</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra5">Логарифмы</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra6">Арифметическая
+                                прогрессия</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra7">Геометрическая
+                                прогрессия</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#algebra8">Бесконечно убывающая
+                                геометрическая прогрессия</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="accordion accordion-flush" id="accordionGeometry">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseGeometry" aria-expanded="false">
+                            Геометрия
+                        </button>
+                    </h2>
+                    <div id="collapseGeometry" class="accordion-collapse collapse"
+                         data-bs-parent="#accordionGeometry">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry1">Треугольник</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry2">Четырехугольники</a>
+                            </li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry3">Окружность и
+                                круг</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry4">Призма</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry5">Пирамида</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry6">Усеченная
+                                пирамида</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry7">Цилиндр</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry8">Конус</a></li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry9">Усеченный конус</a>
+                            </li>
+                            <li class="list-group-item list-group-item-action"><a class="text-decoration-none"
+                                                                                  href="#geometry10">Сфера и шар</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-2">
+        <!-- Algebra -->
+        <div class="col">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="card mb-4" id="algebra1">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Формулы сокращенного умножения</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center lh-1" style="font-family: 'Times New Roman',sans-serif">
+                            <p class="card-text">(<i>a</i> ± <i>b</i>)<sup>2</sup> = <i>a<sup>2</sup></i> ± <i>2 * a *
+                                b</i> + <i>b<sup>2</sup></i></p>
+                            <p class="card-text"><i>a<sup>2</sup></i> - <i>b<sup>2</sup></i> =
+                                (<i>a</i>-<i>b</i>)*(<i>a</i>+<i>b</i>)</p>
+                            <p class="card-text">
+                                (<i>a</i>±<b>b</b>)<sup>3</sup>=<i>a<sup>3</sup></i>±<i></i><i>b</i>+<i>3ab<sup>2</sup></i>±<i>b<sup>3</sup></i>
+                            </p>
+                            <p class="card-text">a<sup>3</sup>±b<sup>3</sup>=(a±b)*(a<sup>2</sup>±ab+b<sup>2</sup>)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra2">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Модуль числа</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/002.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Степень с действительным показателем</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/003.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Корень n-ой степени из числа</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/004.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra5">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Логарифмы</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/005.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra6">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Арифметическая прогрессия</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/006.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra7">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Геометрическая прогрессия</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/007.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="algebra8">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Бесконечно убывающая геометрическая прогрессия </h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/008.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Geometry -->
+        <div class="col">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="card mb-4" id="geometry1">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Треугольник</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/011.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry2">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Четырехугольники</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1" style="font-family: 'Times New Roman', sans-serif">
+                            <h4 class="text-center">Четырехугольники</h4>
+
+                            <h5 class="text-center">Параллелограмм</h5>
+                            <p class="card-text text-indent" style="font-size: 12pt;">
+                                <i>Параллелограммом</i> называется
+                                четырехугольник, противоположные стороны которого попарно параллельны.<br>
+                            </p>
+                            <p class="card-text text-indent"><i>Прямоугольником</i> называется параллелограмм, у
+                                которого все углы прямые. </p>
+                            <p class="card-text text-indent"><i>Ромбом</i> называется параллелограмм, все стороны
+                                которого равны.</p>
+                            <p class="card-text text-indent"><i>Квадратом</i> называется прямоугольник, у которого все
+                                стороны равны. Из определения следует, что квадрат является ромбом, следовательно, он
+                                обладает всеми свойствами прямоугольника и ромба. </p>
+                            <p class="card-text text-indent"><i>Трапецией</i> называется четырёхугольник у которого две
+                                стороны параллельны, а две другие не параллельны.</p>
+
+                            <h5 class="text-center">Площадь четырехугольника</h5>
+                            <p class="card-text text-indent"><i>Площадь параллелограмма</i> равна произведению его
+                                основания на высоту. </p>
+                            <p class="card-text text-indent"><i>Площадь параллелограмма</i> равна произведению двух его
+                                смежных сторон на синус угла между ними.</p>
+                            <p class="card-text text-indent"><i>Площадь трапеции</i> равна произведению полусуммы ее
+                                оснований на высоту.</p>
+                            <p class="card-text text-indent"><i>Площадь четырехугольника</i> равна произведению его
+                                диагоналей на синус угла между ними.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Окружность и круг</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1 "
+                             style="font-family: 'Times New Roman',sans-serif; font-size: 12pt;">
+                            <p class="card-text text-center"> Соотношения между элементами окружности и круга </p>
+                            <p class="card-text text-indent">
+                                Пусть r - радиус окружности, d - ее диаметр, C - длина окружности, S - площадь круга,
+                                <i>l
+                                    <sub>n<sup>0</sup></sub></i> - длина дуги в n градусов, <i>l <sub>x</sub></i> длина
+                                дуги в &alpha;
+                                радиан, <i>S<sub>n<sup>o</sup></sub></i> - площадь сектора ограниченного дугой в n
+                                градусов, <i>S
+                                <sub>&alpha;</sub></i> - площадь сектора, ограниченного дугой в &alpha; градусов. Тогда
+                                имеют место следующие соотношения
+                            </p>
+                            <img class="card-img img-fluid" src="{% static 'img/013-1.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Призма</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1 "
+                             style="font-family: 'Times New Roman', sans-serif; font-size: 12pt;">
+                            <p class="card-text text-indent">
+                                Пусть <i>H</i> - высота призмы <i>AA<sub>1</sub></i> - боковое ребро призмы, <i>P<sub>осн</sub></i>
+                                -
+                                периметр основания призмы, <i>S<sub>осн</sub></i> - площадь основания призмы, <i>S<sub>бок</sub></i>
+                                -
+                                площадь боковой поверхности призмы, S<sub>полн</sub> - площадь полной поверхности
+                                призмы, <i>V</i> - объем пирамиды, <i>P<sub>&perp;</sub></i> - периметр
+                                перпендикулярного сечения
+                                призмф, <i>S<sub>&perp;</sub></i> - площадь перпендиклуярного сечения пирамиды. Тогда
+                                имеют
+                                место следующие соотношения:
+                            </p>
+                            <table class="table text-center">
+                                <tbody>
+                                <tr>
+                                    <td><i>S<sub>бок</sub></i> = <i>P<sub>&perp;</sub></i> * <i>AA<sub>1</sub></i>;</td>
+                                    <td><i>S<sub>полн</sub></i> = 2<i>S<sub>осн</sub></i> + <i>S<sub>бок</sub></i>;</td>
+                                    <td><i>V</i> = <i>S<sub>&perp;</sub></i> * <i>AA<sub>1</sub></i>;</td>
+                                    <td><i>V</i> = <i>S<sub>осн</sub></i> * <i>H</i>;</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <h5 class="text-center">Свойства параллелепипеда</h5>
+                            <ul>
+                                <li>Противоположные грани параллелепипеда равны и параллельны</li>
+                                <li>Диагонали параллелепипеда пересекаются в одной точке и делятся этой точкой пополам
+                                </li>
+                                <li>Квадрат диагонали прямоугольного параллелепипеда равен сумме квадратов трех его
+                                    измерений
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry5">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Пирамида</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1">
+                            <p class="card-text text-indent"
+                               style="font-family: 'Times New Roman', sans-serif; font-size: 12pt;">
+
+                                Пусть <i>H</i> - высота пирамиды, <i>P<sub>осн</sub></i> - периметр основаниия пирамиды,
+                                <I>S<sub>осн</sub></I> - площадь основания пирамиды, <i>S<sub>бок</sub></i> - плошадь
+                                боковой поверхности пирамиды, <i>S<sub>полн</sub></i> - плошадт полной поверхности
+                                пирамиды, <i>V</i> - объем пирамиды. Тогда имеют место следующие соотношения: </p>
+                            <img class="card-img img-fluid" src="{% static 'img/015.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry6">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Усеченная пирамида</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1 text-indent"
+                             style="font-family: 'Times New Roman',sans-serif; font-size: 12pt;">
+                            <p class="card-text">
+                                Пусть <i>H</i> - высота усеченной пирамиды, <i>P<sub>1</sub></i> и <i>P<sub>2</sub></i>
+                                - периметры оснований
+                                усеченной пирамиды, <i>S<sub>1</sub></i> и <i>S<sub>2</sub></i> - площади основания
+                                усеченной
+                                пирамиды, <i>S<sub>2</sub></i> площадь боковой поверхности усеченной пирамиды,
+                                <i>S<sub>2</sub></i> - площадь полной поверхности усеченной пирамиды, <i>V</i> - объем
+                                усеченной
+                                пирамиды.
+                            </p>
+                            <p class="card-text">Тогда имеют место следующие соотношения:</p>
+                            <img class="card-img img-fluid" src="{% static 'img/016.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry7">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Цилиндр</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-indent"
+                             style="font-family: 'Times New Roman', sans-serif; font-size: 12pt;">
+                            <p class="card-text">
+                                Пусть <i>h</i> - высота цилиндра, r - радиус цилиндра, <i>S<sub>бок</sub></i> - площадь
+                                боковой
+                                поверхности цилиндра, <i>S<sub>полн</sub></i> - площадь полной поверхности цилиндра, V -
+                                объем цилиндра. Тогда имеют место следующие соотношения:
+                            </p>
+                            <table class="table text-center">
+                                <tbody>
+                                <tr>
+                                    <td><i>S<sub>бок</sub></i> = 2&pi;<i>rh</i>;</td>
+                                    <td><i>S<sub>полн</sub></i> = 2&pi;<i>r</i>(<i>r</i>+<i>h</i>);</td>
+                                    <td><i>V</i> = &pi;<i>r<sup>2</sup></i><i>h</i>.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry8">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Конус</h5>
+                            <a href="#top"
+                               class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1">
+                            <p class="card-text "
+                               style="font-family: 'Times New Roman', sans-serif; font-size: 12pt;">
+                                Пусть <i>h</i> - высота конуса, <i>r</i> - радиус основания конуса, <i>l</i> -
+                                образующая конуса, <i>S<sub>бок</sub></i> - площадь боковой поверзхности конуса,
+                                <i>S<sub>полн</sub></i> - плошадь полной поверхности конуса, <i>V</i> - объем конуса.
+                                Тогда имеют место следующие соотношеия:
+                                <img class="card-img img-fluid" src="{% static 'img/018.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry9">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Усеченный конус</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="card-img img-fluid" src="{% static 'img/019.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card mb-4" id="geometry10">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Сфера и шар</h5>
+                            <a href="#top" class="btn btn-outline-info">Наверх</a>
+                        </div>
+                        <div class="card-body lh-1">
+                            <p class="card-text "
+                               style="font-family: 'Times New Roman', sans-serif; font-size: 12pt;">
+                                Пусть <i>R</i> - радиус шара, <i>D</i> - его диаметр, <i>S</i> - площадь ограничивающей
+                                шар сферы, <i>V<sub>сегм</sub></i>- плошадь сферической поверхности шарового
+                                сегмента(шарового слоя), высота которого равна <i>h</i>, <i>V</i> - объем шара,
+                                <i>V<sub>сегм</sub></i> - объем сегмента высота которого равна h,
+                                <i>V<sub>сект</sub></i> - объем сектора, ограниченного сегментом, высота которого равна
+                                h. Тогда имеют место следующие соотношения:
+                                <img class="card-img img-fluid" src="{% static 'img/020.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_superuser %}
+        <a href="/admin" class="link-info text-decoration-none row col-2 m-auto">Панель администратора</a>
+    {% endif %}
+    {% if user.username %}
+        <div class="row my-4">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Информация о пользователе</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <img class="card-img" src="{% static 'img/profile.png' %}">
+                            </div>
+                            <div class="col-6">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Имя: {{ user.first_name }}</li>
+                                    <li class="list-group-item">Фамилия: {{ user.last_name }}</li>
+                                    <li class="list-group-item">Email: {{ user.email }}</li>
+                                    <li class="list-group-item">Группа: {{ group }}</li>
+                                    {% if group == "Преподаватели" or group == "Администраторы" %}
+                                        <li class="list-group-item">
+                                            <div class="btn-group d-flex">
+                                                <a href="{% url 'tasks:excel' %}" class="btn btn-success">Отчет в
+                                                    Excel</a>
+                                                <a href="{% url 'tasks:abort' %}" class="btn btn-danger">Сброс</a>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    {% if group == "Преподаватели" or group == "Администраторы" %}
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">Задания на проверку</h5>
+                            <a href="{% url 'tasks:auto_check' %}" class="btn btn-warning">Автопроверка</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                {% for user_task in user_tasks %}
+                                    <div class="col-12"><h5 class="card-title">Задание № {{ user_task.task_id }}</h5>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text">Текст задания:</p>
+                                        <pre>{% autoescape off %}{{ user_task.task.text_task }}{% endautoescape %}</pre>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text">Решил: {{ user_task.user.first_name }} {{ user_task.user.last_name }}</p>
+                                        <p class="card-text">Ответ: {{ user_task.answer }}</p>
+                                    </div>
+                                    <div class="col-6"><p class="card-text">Оценка: </p></div>
+                                    <div class="col-12 btn-group mb-4">
+                                        <a href="{% url 'tasks:tasks_verify' task_id=user_task.task.id price=0 user_id=user_task.user.id %}"
+                                           class="btn btn-danger">0</a>
+                                        <a href="{% url 'tasks:tasks_verify' task_id=user_task.task.id price=1 user_id=user_task.user.id %}"
+                                           class="btn btn-success">1</a>
+                                    </div>
+                                    <hr>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card-header">
+                            <h5 class="card-title">Выполненные задачи</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                {% for user_task in user_tasks %}
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <h4>Задание {{ user_task.task.id }}</h4>
+                                        {% if user_task.status %}
+                                            <a href="{% url 'tasks:tasks_argue' task_id=user_task.task.id %}"
+                                               class="btn btn-warning">Оспорить</a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-text">Текст задания:</p>
+                                        <pre>{% autoescape off %}{{ user_task.task.text_task }}{% endautoescape %}</pre>
+                                        <p class="card-text">Ваш ответ: {{ user_task.answer }}</p>
+                                        <p class="card-text">Правильный ответ: {{ user_task.task.task_answer }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        {% if user_task.status %}
+                                            <p class="card-text">Статус: Проверено</p>
+                                            <p class="card-text">Оценка: {{ user_task.price }}</p>
+                                            <p class="card-text">Проверил: {{ user_task.pricer.first_name }} {{ user_task.pricer.last_name }}</p>
+                                        {% else %}
+                                            <p class="card-text">Статус: На проверке</p>
+                                        {% endif %}
+                                    </div>
+                                    <hr>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

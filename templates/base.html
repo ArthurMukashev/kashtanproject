@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Подготовка к ОГЭ</title>
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'tasks:index' %}"><i class="bi bi-house"></i>Главная</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% with request.resolver_match.view_name as view_name %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if view_name == "tasks:glossary" %}active{% endif %}"
+                               aria-current="page" href="{% url 'tasks:glossary' %}">
+                                <i class="bi bi-book"></i>База знаний
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if view_name == "tasks:profile" %}active{% endif %}"
+                               href="{% url 'tasks:profile' %}"><i class="bi bi-card-list"></i>Мой профиль</a>
+                        </li>
+                    {% endwith %}
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                {% if user.username %}
+                    {{ user }}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button title="Выход" type="submit"
+                                class="border-0 bg-transparent text-primary text-decoration-underline">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                        </button>
+                    </form>
+                {% else %}
+                <span>Для доступа к профилю &nbsp;</span>
+                <a href="{% url 'login' %}"><button type="button" class="btn btn-primary">Войдите в систему</button> </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-light">
+        <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0">© 2024 Mukashev Corp.</span>
+        </div>
+    </footer>
+</div>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

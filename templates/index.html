@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="px-4 py-5 my-5 text-center text-light">
+    <div class="card m-auto w-50">
+        <img src="{% static 'img\picture2.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    <h1 class="display-5 fw-bold">Добро пожаловать</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Данный сайт был разработан с целью обеспечения подготовки учеников к ОГЭ по
+            математике.</p>
+    </div>
+</div>
+
+
+
+    <h1 class="text-light">Тренировочные варианты</h1>
+
+    <div class="row my-4">
+        {% for variant in variants %}
+            <div class="col-2 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Вариант {{ forloop.counter }}</h5>
+                        <a href="{% url 'tasks:variant' pk=variant.id %}"
+                           class="btn btn-outline-success">Приступить</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

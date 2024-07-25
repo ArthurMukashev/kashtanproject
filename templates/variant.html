@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h5 class="text-light text-center">{{ variant }}</h5>
+    <form action="{% url 'tasks:variant' pk=variant.id %}" method="post">
+        {% csrf_token %}
+        {% for task in tasks %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title">Задача {{ forloop.counter }}</h5>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" name="num_tasks[]" value="{{ task.id }}">
+                    {% autoescape off %}
+                        <p class="card-text">{{ task.text_task }}</p>
+                    {% endautoescape %}
+                <hr>
+                    <label for="task_{{ forloop.counter }}" class="form-label">Ваш ответ</label>
+                    <input id="task_{{ forloop.counter }}" class="form-control" type="text" name="tasks[]">
+                </div>
+            </div>
+        {% endfor %}
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Отправить решения</button>
+        </div>
+    </form>
+    <p class="text-light text-center">Задания второй части будут проверяться учителем отдельно</p>
+{% endblock %}

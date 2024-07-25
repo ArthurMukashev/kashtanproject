@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row my-4">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <nav class="h-100 flex-column align-items-stretch pe-4 border-end">
+                        <nav class="nav nav-pills flex-column">
+                            {% for type_group, type_tasks in type_groups.items %}
+                                <a class="nav-link {% if filter_type_group == type_group.id %}active{% endif %}" href="
+                                        {% url 'tasks:tasks' filter_type_group=type_group.id %}">{{ forloop.counter }}.{{ type_group }}
+                                </a>
+                                <nav class="nav nav-pills flex-column">
+                                    {% for type_task in type_tasks %}
+                                        <a class="nav-link {% if filter_type_task == type_task.id %}active{% endif %} ms-3 my-1"
+                                           href="{% url 'tasks:tasks' filter_type_task=type_task.id %}">
+                                            {{ forloop.parentloop.counter }}.{{ forloop.counter }} {{ type_task }}
+                                        </a>
+                                    {% endfor %}
+                                </nav>
+                            {% endfor %}
+                        </nav>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div class="card card-body">
+                {% if active_tasks %}
+                    {% for task in active_tasks %}
+                        <p class="d-inline-flex gap-1">
+                        <h5>Задание: {{ task.name }}</h5>
+                        <pre>{{ task.text_task }}</pre>
+                        <a class="btn btn-primary" data-bs-toggle="collapse"
+                           href="#collapseExample{{ forloop.counter }}" role="button"
+                           aria-expanded="false" aria-controls="collapseExample">
+                            Решение
+                        </a>
+                        </p>
+                        <div class="collapse" id="collapseExample{{ forloop.counter }}">
+                            <div class="card card-body">
+                                <pre>{{ task.text_solution }}</pre>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h5 class="card-title">Выберите тип задач</h5>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
